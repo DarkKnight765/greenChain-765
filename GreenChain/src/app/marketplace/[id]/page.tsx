@@ -1,12 +1,11 @@
-// src/app/marketplace/[id]/page.tsx
-import ProjectDetailClient from "@/components/ProjectDetailClient"
+import ProjectDetailClient from "./ProjectDetailClient"
 
-type PageProps = {
+interface Props {
   params: {
-    id: string;
-  };
-};
+    id: string
+  }
+}
 
-export default function Page({ params }: PageProps) {
-  return <ProjectDetailClient id={params.id} />;
+export default function Page({ params }: Props) {
+  return <ProjectDetailClient id={params.id} />
 }
