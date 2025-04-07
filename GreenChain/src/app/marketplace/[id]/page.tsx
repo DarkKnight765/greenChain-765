@@ -1,11 +1,15 @@
-import ProjectDetailClient from "./ProjectDetailClient"
+import dynamic from "next/dynamic";
 
-interface Props {
+const ProjectDetailClient = dynamic(() => import("./ProjectDetailClient"), {
+  ssr: false,
+});
+
+type PageProps = {
   params: {
-    id: string
-  }
-}
+    id: string;
+  };
+};
 
-export default function Page({ params }: Props) {
-  return <ProjectDetailClient id={params.id} />
+export default function Page({ params }: PageProps) {
+  return <ProjectDetailClient id={params.id} />;
 }
